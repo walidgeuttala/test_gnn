@@ -22,8 +22,7 @@ from dgl.dataloading import GraphDataLoader
 
 def parse_args():
     parser = argparse.ArgumentParser(description="GNN for network classification", allow_abbrev=False)
-    parser.add_argument("--dataset_path", type=str, default="../data_folder/data", help="Path to dataset")
-    parser.add_argument("--test_path", type=str, default="../data_folder/test")
+    parser.add_argument("--dataset_path", type=str, default="./data", help="Path to dataset")
     parser.add_argument("--weight_path", type=str, default="../weights", help="Output path")
     parser.add_argument("--device", type=str, default="cpu", help="Device cuda or cpu")
     parser.add_argument("--batch_size", type=int, default=100, help="Batch size")
