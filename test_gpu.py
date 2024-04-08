@@ -23,7 +23,7 @@ from dgl.dataloading import GraphDataLoader
 def parse_args():
     parser = argparse.ArgumentParser(description="GNN for network classification", allow_abbrev=False)
     parser.add_argument("--dataset_path", type=str, default="./data", help="Path to dataset")
-    parser.add_argument("--weight_path", type=str, default="../weights", help="Output path")
+    parser.add_argument("--weight_path", type=str, default="./data", help="Output path")
     parser.add_argument("--device", type=str, default="cpu", help="Device cuda or cpu")
     parser.add_argument("--batch_size", type=int, default=100, help="Batch size")
     parser.add_argument("--lr", type=float, default=0.01, help="Learning rate")
@@ -209,7 +209,7 @@ class GraphDataset(DGLDataset):
         self.dim_nfeats = load_info(info_path)['dim_nfeats']
         #self.device = load_info(info_path)['device']
         self.data_path = data_path
-        self.labels = torch.load('../data_folder/data/properties_labels.pt')
+        self.labels = torch.load('./data/properties_labels.pt')
         self.labels = self.labels[4]
         if self.device == 'cuda':
             self.graphs = [g.to(self.device) for g in self.graphs]
